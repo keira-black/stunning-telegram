@@ -1,0 +1,41 @@
+h1{
+text-align:center;
+}
+#aMazeTainer{
+padding-left:2em;
+}
+span{
+text-align:center;
+display:block;
+}
+div{
+text-align:center;
+padding:1em;
+padding-bottom:.25em;
+}
+
+div .resultsDiv{
+border: 4px double black;
+}
+
+body{
+background-color: #333333;
+color:#FFECAA;
+}
+
+button{
+background-color:#783C86;
+color:#FFECAA;
+}
+
+.container{
+text-align:center;
+}
+
+#SCORE{
+display:inline-block;
+}
+
+#HP{
+display:inline-block;
+}
