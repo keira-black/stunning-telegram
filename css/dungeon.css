@@ -10,7 +10,7 @@ display:block;
 }
 div{
 text-align:center;
-padding:1em;
+padding:.5em;
 padding-bottom:.25em;
 }
 
@@ -38,4 +38,27 @@ display:inline-block;
 
 #HP{
 display:inline-block;
+}
+
+.infotainer-wrapper{
+	width: 100%;
+	text-align: center;
+}
+
+.infotainer{
+	text-align: left;
+	overflow-y:hidden;
+	overflow-x: wrap; 
+	height:100px;
+	width: 900px;
+	margin-left: 16em;
+	scroll-behavior: smooth;
+	color: lime;
+	background-color: black;
+}
+.infoLine{
+	text-align: left;
+	padding: 0px;
+	padding-left: 12px;
+	margin: 0px;
 }

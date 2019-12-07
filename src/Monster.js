@@ -43,7 +43,7 @@ Monster.prototype.getHit=function(amt){
 	this._hp = this._hp - amt;
 	if (this._hp <= 0) 
 	{
-		toastr.info("You have slain the monster! You get 10 points!");
+		globalvars.print("You have slain the monster! You get 10 points!");
 		Game.player._score = Game.player._score + 10;
 		this._die();
 	}
@@ -62,7 +62,7 @@ Monster.prototype._die=function(){
 	Game.scheduler.remove(this);
 	var deathKnell = new Audio("sfx/monster.wav");
 	if (globalvars.BACKGROUNDSOUNDS) deathKnell.play();
-	toastr.info("The monster you were fighting has died!!");
+	globalvars.print("The monster you were fighting has died!!");
 	Game.this = null;
 }
 
@@ -84,13 +84,13 @@ Monster.prototype.act = function() {
 	astar.compute(this._x, this._y, pathCallback);
 	path.shift();
 	if (path.length <= 2) {
-		toastr.warning("The monster attacks!");
+		globalvars.print("The monster attacks!");
 		if (globalvars.BACKGROUNDSOUNDS)this._sound.play();
 		hitAmt = Game.monster.makeHit();
-		toastr.warning("The monster does "+hitAmt+" damage!");
+		globalvars.print("The monster does "+hitAmt+" damage!");
 		Game.player.getHit();
 		amt = Game.player.makeHit();
-		toastr.info("You counter! You strike the monster for "+amt+" damage!");
+		globalvars.print("You counter! You strike the monster for "+amt+" damage!");
 		if (globalvars.BACKGROUNDSOUNDS) Game.player.getSound().play();
 		this.getHit(amt);
 	} else {

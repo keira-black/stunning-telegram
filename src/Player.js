@@ -2,7 +2,7 @@ var Player = function(x, y) {
 	this._x = x;
 	this._y = y;
 	this._draw();
-	this._hp = 100;
+	this._hp = 150;
 	this._hitDice = 6;
 	this._score = 0;
 	this._symbol = '@';
@@ -136,12 +136,12 @@ Player.prototype.addAchievement = function(achieved){
 Player.prototype._checkGrass = function() {
 	var key = this._x + "," + this._y;
 	if (Game.map[key] == ".") {
-		toastr.info("There is nothing here!");
+		globalvars.print("There is nothing here!");
 	}
 	else if (Game.map[key]=="O" || Game.map[key]=="_" ){
 		win();
 	} else if (key == Game.portalSwitch) {
-		toastr.success("Hooray! You found the switch! Opening gate to next level...");
+		globalvars.print("Hooray! You found the switch! Opening gate to next level...");
 		Game.portalOpened = true;
 		this.addAchievement("Portal opened.");
 		if (globalvars.level < 6){
@@ -157,50 +157,50 @@ Player.prototype._checkGrass = function() {
 	case 1:
 		switch (Game.player.getSwords()){
 		case 1:
-		toastr.success("You found a rusty fork! HD + 2");
+		globalvars.print("You found a rusty fork! HD + 2");
 		this.addAchievement("Found rusty fork. It was okay.");
 		this._hitDice += 2;
 		this._score+=2;
 		this._sound = "sfx/sword.wav";
 		break;
 		case 2:
-		toastr.success("You found a can lid taped to a butterknife! HD + 2");
+		globalvars.print("You found a can lid taped to a butterknife! HD + 2");
 		this.addAchievement("Found a crazy can knife");
 		this._hitDice += 2;
 		this._score+=2;
 		break;
 		case 3:
-		toastr.success("You found a butcher knife! HD + 3");
+		globalvars.print("You found a butcher knife! HD + 3");
 		this.addAchievement("Found a butcher knife.");
 		this._hitDice += 3;
 		this._score+=2;
 		break;
 		case 4:
-		toastr.success("You found a hobo knife! Extra nastiness damage! HD + 3");
+		globalvars.print("You found a hobo knife! Extra nastiness damage! HD + 3");
 		this.addAchievement("Found a hobo knife.");
 		this._hitDice += 3;
 		this._score+=2;
 		break;
 		case 5:
-		toastr.success("You found a rusty sword! HD + 3");
+		globalvars.print("You found a rusty sword! HD + 3");
 		this.addAchievement("Found a rusty sword.");
 		this._hitDice += 3;
 		this._score+=2;
 		break;
 		case 6:
-		toastr.success("You found a non-rusty sword! HD + 3");
+		globalvars.print("You found a non-rusty sword! HD + 3");
 		this.addAchievement("Found a normal sword.");
 		this._hitDice += 3;
 		this._score+=2;
 		break;
 		case 7:
-		toastr.success("You found a great sword! HD + 3");
+		globalvars.print("You found a great sword! HD + 3");
 		this.addAchievement("Hey, this sword is great!");
 		this._hitDice += 3;
 		this._score+=2;
 		break;
 		default:
-		toastr.success("You found a slightly more impressive weapon of some kind.");
+		globalvars.print("You found a slightly more impressive weapon of some kind.");
 		this.addAchievement("Oh wow, another weapon. Good job.");
 		this._hitDice += 3;
 		this._score+=2;
@@ -208,13 +208,13 @@ Player.prototype._checkGrass = function() {
 		}
 	break;
 	case 2:
-		toastr.success("You found a health potion!");
+		globalvars.print("You found a health potion!");
 		this.addAchievement("Found a health potion!");
 		this._hp += 20;
 		this._score+=2;
 		break;
 	case 3:
-	toastr.success("You found a score potion!");
+	globalvars.print("You found a score potion!");
 	this.addAchievement("Found a score potion!");
 		this._score += 50;
 		this._score+=2;
@@ -222,7 +222,7 @@ Player.prototype._checkGrass = function() {
 	}
 	}
 else{	
-	toastr.warning("This grass is empty.");
+	globalvars.print("This grass is empty.");
 	}
 		Game.map[key] = ".";
 	}

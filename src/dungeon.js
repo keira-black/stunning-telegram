@@ -1,7 +1,7 @@
 ROT.DEFAULT_WIDTH=30;
 ROT.DEFAULT_HEIGHT=15;
 
-$(function(){
+$(function(){	
    globalvars.level = 1;
 	$('#MUSIC').click(function(){
 	if (globalvars.MUSICPLAYING == true) {
@@ -17,6 +17,7 @@ $(function(){
   } else {
   globalvars.BACKGROUNDSOUNDS = true;
   }})
+    globalvars.attachPrint(document.getElementById("mainInfo"));
 	tileSet.onload = function() {
 		Game.init();
 	}
@@ -63,6 +64,7 @@ player: null,
 monster: null,
 monster2: null,
 monster3:null,
+monster4:null,
 portalSwitch: null,
 portalOpened: false,
 portalLocation: null,
@@ -106,6 +108,7 @@ scoreBonus = 200;
 break;
 case 5:
 toastr.success("Level bonuses: HP+100, HD+13, SCORE+220");
+onScreen.print("Level bonuses: HP:100, HD+13, SCORE+220");
 hpBonus = 100;
 hdBonus = 13;
 scoreBonus = 220;
@@ -128,6 +131,7 @@ this._achievements = globalvars.playerBackup._achievements;
 init: function() {
 		$("#aMazeTainer").html("");
 		this.display = new ROT.Display(options);
+		
 		$("#aMazeTainer").append(this.display.getContainer());
 		this._generateMap();
 		/*
@@ -140,6 +144,7 @@ init: function() {
 		this.scheduler.add(this.monster, true);
 		this.scheduler.add(this.monster2, true);
 		this.scheduler.add(this.monster3, true);
+		this.scheduler.add(this.monster4, true);
 		this.engine = new ROT.Engine(this.scheduler);
 		this.engine.start();
 		this.hud = new Hud();
@@ -173,6 +178,7 @@ init: function() {
 		this.monster = this._createBeing(Monster, freeCells);
 		this.monster2 = this._createBeing(Monster, freeCells);
 		this.monster3 = this._createBeing(Monster, freeCells);
+		this.monster4 = this._createBeing(Monster, freeCells);
 		this._drawWholeMap();
 	},
 	
@@ -300,26 +306,26 @@ function win(){
 console.log(globalvars.level);
 if (globalvars.level < 6){
 globalvars.level++;
-toastr.success("You have beaten this level.");
+globalvars.print("You have beaten level "+(globalvars.level-1));
 Game.player.addAchievement("Beat level "+(globalvars.level-1));
 switch(globalvars.level){
 case 1:
-toastr.success("Level bonuses: HP+50, HD+5, SCORE+100");
+globalvars.print("Level bonuses: HP+50, HD+5, SCORE+100");
 break;
 case 2:
-toastr.success("Level bonuses: HP+60, HD+7, SCORE+150");
+globalvars.print("Level bonuses: HP+60, HD+7, SCORE+150");
 break;
 case 3:
-toastr.success("Level bonuses: HP+80, HD+9, SCORE+175");
+globalvars.print("Level bonuses: HP+80, HD+9, SCORE+175");
 break;
 case 4:
-toastr.success("Level bonuses: HP+90, HD+11, SCORE+200");
+globalvars.print("Level bonuses: HP+90, HD+11, SCORE+200");
 break;
 case 5:
-toastr.success("Level bonuses: HP+100, HD+13, SCORE+220");
+globalvars.print("Level bonuses: HP+100, HD+13, SCORE+220");
 break;
 case 6:
-toastr.success("Level bonuses: HP+120, HD+15, SCORE+250");
+globalvars.print("Level bonuses: HP+120, HD+15, SCORE+250");
 break;
 }
 setTimeout(function(){Game.reInit();},3010);
