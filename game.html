@@ -1,33 +1,60 @@
-<html><head>
-   <script src = "src/globals.js"></script>
-   <link href="css/bootstrap.css" rel="stylesheet">
-       <script src="lib/jquery.js"></script>
-    <script src="lib/bootstrap.js"></script>   
-   <script src="http://w3resource.com/twitter-bootstrap/twitter-bootstrap-v2/js/bootstrap-tooltip.js"></script>
-    <script src="lib/toastr.js"></script>
-	<script src = "lib/rot.js"></script>
-	<script src = "src/tstropts.js"></script>
-	<script src = "src/Player.js"></script>
-	<script src = "src/Monster.js"></script>
-	<script src = "src/dungeon.js"></script>
-    <link href="css/toastr.css" rel="stylesheet">
-    <link href="css/dungeon.css" rel="stylesheet">
-    <title>~Dungeons & Generators~</title>
+<html>
+	<head>
+		<script src = "src/globals.js"></script>
+		<link href="css/bootstrap.css" rel="stylesheet">
+   		<script src="lib/jquery.js"></script>
+		<script src="lib/bootstrap.js"></script>   
+		<script src="http://w3resource.com/twitter-bootstrap/twitter-bootstrap-v2/js/bootstrap-tooltip.js">
+		</script>
+		<script src="lib/toastr.js"></script>
+		<script src = "lib/rot.js"></script>
+		<script src = "src/tstropts.js"></script>
+		<script src = "src/Player.js"></script>
+		<script src = "src/Monster.js"></script>
+		<script src = "src/dungeon.js"></script>
+		<link href="css/toastr.css" rel="stylesheet">
+		<link href="css/dungeon.css" rel="stylesheet">
+		<title>~Dungeons & Generators~</title>
 	</head>
 	<body>
-	<h1><img src = "img/logo.png"/></h1>
-	<div><audio id="playTune"><source src="mus/No_Loli-Gagging_-_15_-_Inside_the_Machine.mp3" type="audio/mpeg">
-Your browser does not support the audio tag.
-</audio>	
-<br><div id ="aMazeTainer"></div><button id = "MUSIC">
-	Music
-	</button>
-	<button id = "SFX">
-	Sound Effects
-	</button>
-	<div id="HP"></div><div id="SCORE"></div><br>
-	<div id = "levelDisplay"></div>
-	<div class="infotainer-wrapper"><div id="mainInfo" class="infotainer">
-	</div></div>
+		<!--<h1><img src = "img/logo.png"/></h1>-->
+		<div class="container-fluid">
+			<div class="row">
+				<audio id="playTune"><source src="mus/No_Loli-Gagging_-_15_-_Inside_the_Machine.mp3" type="audio/mpeg">
+					Your browser does not support the audio tag.
+				</audio>
+			</div>
+			<div class="row-md-1"></div>
+			<div class="row-md-8">
+				<div id ="aMazeTainer" class="col-md-8">
+				</div>
+				<div class="col-md-1 spacer"></div>
+				<div id="sidebar" class="col-md-2 row-md-12">
+					<div>
+						<button id = "MUSIC">
+							Music
+						</button>
+					</div>
+					<div>
+						<button id = "SFX">
+							Sound Effects
+						</button>
+					</div>
+					<div id="HP"></div>
+					<div id="SCORE"></div>
+					<div id = "LEVEL"></div>
+					<div class="infoBlob">
+						<span><b>Controls</b></span>
+						<span>Arrows: Move</span>
+						<span>Space: Everything Else</span>
+					</div>
+				</div>
+			</div>
+			<div class="spacer col-md-2"></div>
+			<div class="infotainerWrapper row-md-2 col-md-8">
+				<div id="mainInfo" class="infotainer col-md-12"></div>
+			</div>
+			<div class="spacer col-md-2"></div>
+		</div>
 	</body>
-	</html>
+</html>

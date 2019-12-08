@@ -1,3 +1,17 @@
+//this'll generate monsters randomly once its updated to be a bit like the dragon_generate function
+// I threw together based off funfunfunction's generators tutorial...
+// there's so much to clean up or fix, nice to be able to work out of order and do fun things
+// but there'll be a refactoring reckoning eventually LOL... 
+// const generateMonster = function(x,y){
+// 	this._x = x;
+// 	this_y = y;
+
+// 	this._hp = 
+// 	this._hitDice = 
+// 	this._symbol = 
+// 	return { _x, _y, _hp, _hitDice, _symbol, _sound, _draw }
+// }
+
 var Monster = function(x, y) {
 	this._x = x;
 	this._y = y;

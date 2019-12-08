@@ -107,19 +107,17 @@ hdBonus = 11;
 scoreBonus = 200;
 break;
 case 5:
-toastr.success("Level bonuses: HP+100, HD+13, SCORE+220");
-onScreen.print("Level bonuses: HP:100, HD+13, SCORE+220");
 hpBonus = 100;
 hdBonus = 13;
 scoreBonus = 220;
 break;
 case 6:
-toastr.success("Level bonuses: HP+120, HD+15, SCORE+250");
 hpBonus = 120;
 hdBonus = 15;
 scoreBonus = 250;
 break;
 };
+globalvars.print("Level bonuses: HP+"+hpBonus+", HD+"+hdBonus+", SCORE+"+scoreBonus);
 this.player._hp = globalvars.playerBackup._hp+hpBonus;
 this.player._hitDice = globalvars.playerBackup._hitDice+hdBonus;
 this.player._score = globalvars.playerBackup._score+scoreBonus;
@@ -175,6 +173,7 @@ init: function() {
 		this.player = this._createBeing(Player, freeCells);
 		$("#HP").text("HP: "+this.player.getHP());
 		$("#SCORE").text("Score: "+this.player.getScore());
+		$("#LEVEL").text("Level: "+globalvars.level);
 		this.monster = this._createBeing(Monster, freeCells);
 		this.monster2 = this._createBeing(Monster, freeCells);
 		this.monster3 = this._createBeing(Monster, freeCells);
@@ -308,26 +307,6 @@ if (globalvars.level < 6){
 globalvars.level++;
 globalvars.print("You have beaten level "+(globalvars.level-1));
 Game.player.addAchievement("Beat level "+(globalvars.level-1));
-switch(globalvars.level){
-case 1:
-globalvars.print("Level bonuses: HP+50, HD+5, SCORE+100");
-break;
-case 2:
-globalvars.print("Level bonuses: HP+60, HD+7, SCORE+150");
-break;
-case 3:
-globalvars.print("Level bonuses: HP+80, HD+9, SCORE+175");
-break;
-case 4:
-globalvars.print("Level bonuses: HP+90, HD+11, SCORE+200");
-break;
-case 5:
-globalvars.print("Level bonuses: HP+100, HD+13, SCORE+220");
-break;
-case 6:
-globalvars.print("Level bonuses: HP+120, HD+15, SCORE+250");
-break;
-}
 setTimeout(function(){Game.reInit();},3010);
 }else{
 	toastr.success("You have won!");
